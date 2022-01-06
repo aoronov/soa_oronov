@@ -19,11 +19,13 @@ namespace AutomationProject001
                 }
         */
 
-        private IWebElement UserNameField => _driver.FindElement(By.XPath("//input[@name='email']"));
+        private IWebElement UserNameField => _driver.FindElement(By.XPath("//input[@id='username']"));
 
-        private IWebElement PasswordField => _driver.FindElement(By.XPath("//input[@name='pass']"));
+        private IWebElement PasswordField => _driver.FindElement(By.XPath("//input[@id='password']"));
 
-        private IWebElement SubmitButton => _driver.FindElement(By.XPath("//button[@name='btn-login']"));
+        private IWebElement SubmitButton => _driver.FindElement(By.XPath("//input[@id='loginBut']"));
+
+        private IWebElement WrongCredentialsErrorMessage => _driver.FindElement(By.CssSelector("p#form\\.errors"));
 
         public void EnterUserName(string userName) 
         {
@@ -38,6 +40,10 @@ namespace AutomationProject001
         public void ClickSubmitButton()
         {
             SubmitButton.Click();
+        }
+        public bool IsWrongCredentialsErrorMessageDisplayed()
+        {
+            return WrongCredentialsErrorMessage.Displayed;
         }
     }
 }
