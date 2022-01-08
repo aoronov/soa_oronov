@@ -16,7 +16,7 @@ namespace AutomationProject001
         [SetUp]
         public void Setup()
         {
-            ChromeOptions options = new ChromeOptions();
+            ChromeOptions options = new();
             options.AddArgument("start-maximized");
             options.AddArgument("incognito");
             _driver = new ChromeDriver(options);
